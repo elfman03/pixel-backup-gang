@@ -24,3 +24,17 @@ already=`mount | grep $internal`
 if [ "$already" == "" ] ; then
   echo "unmount SUCCESS!" | tee -a $LOG
 fi
+
+bonusfat=`mount | grep /mnt/media_rw/bonusfat`
+if [ "$bonusfat" != "" ] ; then
+  echo "" | tee -a $LOG
+  echo "SPECIAL bonusfat unmount" | tee -a $LOG
+  umount /mnt/media_rw/bonusfat
+  # Sanity Check
+  #
+  already=`mount | grep /mnt/media_rw/bonusfat`
+  if [ "$already" == "" ] ; then
+    echo "unmount SUCCESS!" | tee -a $LOG
+  fi
+fi
+
