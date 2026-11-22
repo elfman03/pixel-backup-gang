@@ -1,0 +1,6 @@
+id=substitute-dir
+name=substitute-dir
+version=v1
+versionCode=1
+author=Chris
+description=Substitute ext4 storage for photos and media store to reduce flash wear

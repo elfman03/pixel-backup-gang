@@ -1,4 +1,4 @@
-all: release release/cifs-mounter.zip release/cifs-unmounter.zip release/usb-mounter.zip release/usb-unmounter.zip release/wifi-adb.zip
+all: release release/cifs-mounter.zip release/cifs-unmounter.zip release/usb-mounter.zip release/usb-unmounter.zip release/wifi-adb.zip release/substitute-dir.zip
 
 release:
 	mkdir release
@@ -23,5 +23,9 @@ release/wifi-adb.zip: wifi-adb/module.prop wifi-adb/action.sh
 	chmod 755 wifi-adb/action.sh
 	zip -j release/wifi-adb.zip wifi-adb/module.prop wifi-adb/action.sh
 
+release/substitute-dir.zip: substitute-dir/module.prop substitute-dir/action.sh
+	chmod 755 substitute-dir/action.sh
+	zip -j release/substitute-dir.zip substitute-dir/module.prop substitute-dir/action.sh
+
 clean:
-	rm -f release/usb-mounter.zip release/usb-unmounter.zip release/wifi-adb.zip
+	rm -f release/usb-mounter.zip release/usb-unmounter.zip release/wifi-adb.zip release/substitute-dir.zip
